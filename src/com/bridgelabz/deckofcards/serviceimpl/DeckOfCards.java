@@ -127,4 +127,15 @@ public class DeckOfCards implements DeckOfCardsI {
             System.out.println("Key = " + entry.getKey() + " , Value = " + entry.getValue());
         }
     }
+
+    class SortByRank implements Comparator<Card> {
+
+        @Override
+        public int compare(Card card1, Card card2) {
+            if (card1.getRank() == card2.getRank()) {
+                return card1.getSuit().compareTo(card2.getSuit());
+            }
+            return card1.getRank().compareTo(card2.getRank());
+        }
+    }
 }

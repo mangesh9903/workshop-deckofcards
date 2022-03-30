@@ -4,10 +4,7 @@ import com.bridgelabz.deckofcards.model.Card;
 import com.bridgelabz.deckofcards.model.Player;
 import com.bridgelabz.deckofcards.service.DeckOfCardsI;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class DeckOfCards implements DeckOfCardsI {
     private static final String[] SUIT = {"Spades", "Hearts", "Diamond", "Clubs"};
@@ -69,6 +66,45 @@ public class DeckOfCards implements DeckOfCardsI {
                 tempArray[indexCol] = temp;
             }
             DECK_OF_CARDS[indexRow] = tempArray;
+        }
+    }
+
+    @Override
+    public void distributeCards() {
+
+        Comparator<Player> comparator = new Comparator<Player>() {
+            @Override
+            public int compare(Player o1, Player o2) {
+                if (o1.getPlayerTurn() > o2.getPlayerTurn())
+                    return 1;
+                else
+                    return -1;
+            }
+        };
+
+        Collections.sort(playerList, comparator);
+
+        for (int player = 0; player < playerList.size(); player++) {
+            int count = 0;
+            int cardIndex = player;
+            Card[] cardSet = new Card[9];
+            while (count < 9) {
+                Card card = deck[cardIndex];
+                cardSet[count] = card;
+                cardIndex = cardIndex + 5;
+                count++;
+            }
+            playerList.get(player).setCard(cardSet);
+        }
+        for (Player player : playerList) {
+            System.out.println(player);
+        }
+    }
+
+    @Override
+    public void printDect() {
+        for (int index = 0; index < deck.length; index++) {
+            System.out.println(deck[index]);
         }
     }
 }

@@ -8,4 +8,8 @@ public interface DeckOfCardsI {
     void orderPlayerTurn(int numberOfPlayers);
 
     void shuffleDeckOfCards();
+
+    void distributeCards();
+
+    void printDect();
 }

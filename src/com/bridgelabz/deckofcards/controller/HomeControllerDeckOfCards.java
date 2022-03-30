@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class HomeControllerDeckOfCards {
     public static void main(String[] args) {
-        System.out.println("Welcome to Deck Of Cards Game.");
+      System.out.println("Welcome to Deck Of Cards Game.");
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter How Many Player you want");
         int noOfPlayers = scanner.nextInt();
@@ -16,5 +16,7 @@ public class HomeControllerDeckOfCards {
         deckOfCards.addPlayers(noOfPlayers);
         deckOfCards.orderPlayerTurn(noOfPlayers);
         deckOfCards.shuffleDeckOfCards();
+        deckOfCards.distributeCards();
+        deckOfCards.printDect();
     }
 }

@@ -15,5 +15,6 @@ public class HomeControllerDeckOfCards {
         deckOfCards.setupDeckOfCards();
         deckOfCards.addPlayers(noOfPlayers);
         deckOfCards.orderPlayerTurn(noOfPlayers);
+        deckOfCards.shuffleDeckOfCards();
     }
 }

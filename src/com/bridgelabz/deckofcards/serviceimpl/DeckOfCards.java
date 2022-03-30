@@ -6,6 +6,7 @@ import com.bridgelabz.deckofcards.service.DeckOfCardsI;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class DeckOfCards implements DeckOfCardsI {
@@ -53,6 +54,21 @@ public class DeckOfCards implements DeckOfCardsI {
         for (int index = 0; index < numberOfPlayers; index++) {
             int turn = scanner.nextInt();
             playerList.get(index).setPlayerTurn(turn);
+        }
+    }
+
+    @Override
+    public void shuffleDeckOfCards() {
+        Random random = new Random();
+        for (int indexRow = 0; indexRow < DECK_OF_CARDS.length; indexRow++) {
+            String[] tempArray = DECK_OF_CARDS[indexRow];
+            for (int indexCol = 0; indexCol < tempArray.length; indexCol++) {
+                int rand = indexCol + random.nextInt(tempArray.length - indexCol);
+                String temp = tempArray[rand];
+                tempArray[rand] = tempArray[indexCol];
+                tempArray[indexCol] = temp;
+            }
+            DECK_OF_CARDS[indexRow] = tempArray;
         }
     }
 }

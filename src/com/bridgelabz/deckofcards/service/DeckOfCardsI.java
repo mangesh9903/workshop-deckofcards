@@ -6,4 +6,6 @@ public interface DeckOfCardsI {
     void addPlayers(int numberOfPlayers);
 
     void orderPlayerTurn(int numberOfPlayers);
+
+    void shuffleDeckOfCards();
 }

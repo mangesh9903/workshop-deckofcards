@@ -18,5 +18,6 @@ public class HomeControllerDeckOfCards {
         deckOfCards.shuffleDeckOfCards();
         deckOfCards.distributeCards();
         deckOfCards.printDect();
+        deckOfCards.displayPlayerCards();
     }
 }

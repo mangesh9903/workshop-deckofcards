@@ -12,7 +12,7 @@ public class DeckOfCards implements DeckOfCardsI {
     private static final String[][] DECK_OF_CARDS = {SUIT, RANK};
     private static final Card[] deck = new Card[52];
     private static final List<Player> playerList = new ArrayList<>();
-
+    private static final Map<String, HashMap<String, Integer>> playerCardInfo = new HashMap<>();
     Scanner scanner = new Scanner(System.in);
 
     @Override
@@ -105,6 +105,26 @@ public class DeckOfCards implements DeckOfCardsI {
     public void printDect() {
         for (int index = 0; index < deck.length; index++) {
             System.out.println(deck[index]);
+        }
+    }
+
+    @Override
+    public void displayPlayerCards() {
+        for (int indexI = 0; indexI < playerList.size(); indexI++) {
+            HashMap<String, Integer> cardInfo = new HashMap<>();
+            Card[] cardArray = playerList.get(indexI).getCard();
+            for (int indexJ = 0; indexJ < cardArray.length; indexJ++) {
+                if (cardInfo.containsKey(cardArray[indexJ].getSuit())) {
+                    int value = cardInfo.get(cardArray[indexJ].getSuit());
+                    cardInfo.put(cardArray[indexJ].getSuit(), value + 1);
+                } else {
+                    cardInfo.put(cardArray[indexJ].getSuit(), 1);
+                }
+            }
+            playerCardInfo.put(playerList.get(indexI).getFirstName(), cardInfo);
+        }
+        for (Map.Entry<String, HashMap<String, Integer>> entry : playerCardInfo.entrySet()) {
+            System.out.println("Key = " + entry.getKey() + " , Value = " + entry.getValue());
         }
     }
 }

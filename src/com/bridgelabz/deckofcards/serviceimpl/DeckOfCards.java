@@ -30,7 +30,7 @@ public class DeckOfCards implements DeckOfCardsI {
     @Override
     public void addPlayers(int numberOfPlayers) {
         System.out.println("Player Details.");
-        if (numberOfPlayers >= 4 || numberOfPlayers <= 2) {
+        if (numberOfPlayers > 5 || numberOfPlayers <= 2) {
             System.out.println("Please Enter Player InBetween 2 to 4 ");
         } else {
             for (int index = 0; index < numberOfPlayers; index++) {
@@ -44,6 +44,15 @@ public class DeckOfCards implements DeckOfCardsI {
                     System.out.println(playerList.get(index2));
                 }
             }
+        }
+    }
+
+    @Override
+    public void orderPlayerTurn(int numberOfPlayers) {
+        System.out.println("Enter Players order.");
+        for (int index = 0; index < numberOfPlayers; index++) {
+            int turn = scanner.nextInt();
+            playerList.get(index).setPlayerTurn(turn);
         }
     }
 }

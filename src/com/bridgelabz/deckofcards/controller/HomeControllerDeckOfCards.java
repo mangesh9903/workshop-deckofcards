@@ -14,5 +14,6 @@ public class HomeControllerDeckOfCards {
         DeckOfCardsI deckOfCards = new DeckOfCards();
         deckOfCards.setupDeckOfCards();
         deckOfCards.addPlayers(noOfPlayers);
+        deckOfCards.orderPlayerTurn(noOfPlayers);
     }
 }

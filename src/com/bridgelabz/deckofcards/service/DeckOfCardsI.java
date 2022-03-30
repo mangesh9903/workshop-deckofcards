@@ -4,4 +4,6 @@ public interface DeckOfCardsI {
     void setupDeckOfCards();
 
     void addPlayers(int numberOfPlayers);
+
+    void orderPlayerTurn(int numberOfPlayers);
 }

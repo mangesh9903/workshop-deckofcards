@@ -1,5 +1,7 @@
 package com.bridgelabz.deckofcards.model;
 
+import java.util.Arrays;
+
 public class Player {
     private String firstName;
     private String lastName;
@@ -43,5 +45,15 @@ public class Player {
 
     public void setCard(Card[] card) {
         this.card = card;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", playerTurn=" + playerTurn +
+                ", card=" + Arrays.toString(card) +
+                '}';
     }
 }
